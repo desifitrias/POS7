@@ -27,6 +27,19 @@ Route::get('/about/{search}', function () {
     return view('about', $data);
 });
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 // Route::get('/user', [UserController::class, 'index'])->name('user.index');
 // Route::get('/user/tambah_user', [UserController::class, 'tambah'])->name('user.tambah');
 // Route::post('/user/simpan_user', [UserController::class, 'simpan'])->name('user.simpan');
