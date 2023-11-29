@@ -10,13 +10,13 @@ class ProfileController extends Controller
         $nama ="Desi Fitria";
         $alamat ="kp burujul";
         $tanggal_lahir ="06 Desember 2002";
-        // $data_array = array (
-        //      "nama"=> array (
-        //          "Fauzi","desi","ressa","wulan",
-        //      ),
-        //  );
+        $data_array = array(
+        "nama" => array(
+        "Fauzi", "desi", "ressa", "wulan",
+    ),
+);
 
-         $data_array = array();
+        // $data_array = array();
         
         return view ('profile', compact ('nama',
         'alamat',
@@ -25,4 +25,4 @@ class ProfileController extends Controller
     }
 }
 
-//for dalam view, if, foreach//forelse untuk data ketika null
+//tugas buat perulangan for dalam view, if, foreach//forelse untuk data ketika null
