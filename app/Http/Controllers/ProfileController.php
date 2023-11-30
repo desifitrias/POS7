@@ -16,7 +16,7 @@ class ProfileController extends Controller
     ),
 );
 
-        // $data_array = array();
+       
         
         return view ('profile', compact ('nama',
         'alamat',

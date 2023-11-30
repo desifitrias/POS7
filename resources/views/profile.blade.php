@@ -8,15 +8,16 @@
 </head>
 
 <body>
-    <h1>Profile</h1>
+    <h1>Contoh Pengulangan menggunakan if </h1>
 
     <!-- Pengulangan menggunakan if -->
     <hr>
     <table border="0">
+        <h1>Profile</h1>
         @if($nama =='Desi Fitria')
         <tr>
             <td>Nama Lengkap:</td>
-            <td>{{$nama}}</td>
+            <td>{{ $nama }}</td>
         </tr>
         @else
         <tr>
@@ -29,38 +30,43 @@
 
     <!-- Contoh pengulangan menggunakan foreach -->
     <h1>Contoh Pengulangan menggunakan foreach </h1>
-    <table>
-        @foreach($data_array['nama'] as $data)
+    <hr>
+    <table border="0">
+        <table>
+            @foreach($data_array['nama'] as $data)
+            <tr>
+                <td>Nama</td>
+                <td>{{ $data }}</td>
+            </tr>
+            @endforeach
+        </table>
+    </hr>
+
+    <!-- Contoh pengulangan menggunakan forelse -->
+    <h1>Contoh Pengulangan menggunakan forelse </h1>
+    <table border="0">
+        <hr>
+        @forelse($data_array['nama'] as $data)
         <tr>
             <td>Nama</td>
             <td>{{ $data }}</td>
-        </tr>
-        @endforeach
-    </table>
-
-    <!-- Contoh pengulangan menggunakan forelse -->
-    <!-- <h1>Contoh Pengulangan menggunakan forelse </h1>
-    <table>
-        @forelse($data_array as $data)
-        <tr>
-            <td>Nama</td>
-            <td>{{$data}}</td>
         </tr>
         @empty
         <tr>
             <td colspan="2">Data Masih Kosong</td>
         </tr>
         @endforelse
-
-    </table> -->
+    </table>
+    </hr>
 
     <!-- Contoh Pengulangan dengan for -->
-    <!-- <h1>Contoh Pengulangan dengan for</h1>
-    <table>
+    <h1>Contoh Pengulangan dengan for</h1>
+    <table border="0">
+        <hr>
         @for($i = 0; $i < count($data_array['nama']); $i++)
         <tr>
             <td>Nama</td>
-            <td>{{$data_array['nama'][$i]}}</td>
+            <td>{{ $data_array['nama'][$i] }}</td>
         </tr>
         @endfor
 
@@ -69,10 +75,8 @@
             <td colspan="2">Data Masih Kosong</td>
         </tr>
         @endif
-    </table> -->
+    </table>
+    </hr>
 </body>
 
 </html>
-
-
-   
