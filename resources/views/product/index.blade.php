@@ -9,9 +9,25 @@
 </head>
 <body>
     <div class="container mt-5">
+        <!-- Menampilkan pesan sukses jika ada -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <!-- Menampilkan pesan error jika ada -->
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <h2>List Product</h2>
         <hr>
+        <!-- Tombol untuk membuat produk baru -->
         <a href="{{ URL('produk/create') }}" class="btn btn-primary mb-3">Create Product</a>
+        <!-- Tabel untuk menampilkan daftar produk -->
         <table class="table">
             <thead>
                 <tr>
@@ -23,22 +39,32 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Menampilkan data produk dari loop -->
                 @forelse ($product as $data)
                     <tr>
+                        <!-- Kolom ID produk -->
                         <td>{{ $data->id }}</td>
+                        <!-- Kolom Nama Product -->
                         <td>{{ $data->product }}</td>
+                        <!-- Kolom Harga Product -->
                         <td>{{ $data->price }}</td>
+                        <!-- Kolom Stok Product -->
                         <td>{{ $data->stock }}</td>
+                        <!-- Tombol untuk mengedit atau menghapus produk -->
                         <td>
-                            <a href="{{ URL('produk/' . $data->id . '/edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ URL('produk/' . $data->id) }}" method="POST" style="display: inline-block;">
+                            <!-- Tombol Edit -->
+                            <a href="{{ URL('produk/' . $data->id . '/edit') }}" class="btn btn-warning btn-sm" onclick="return confirm('Apakah kamu yakin untuk memperbaharui produk ini?');">Edit</a>
+                            <!-- Form untuk menghapus produk -->
+                            <form action="{{ URL('produk/' . $data->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Apakah kamu yakin untuk menghapus produk ini?');">
                                 @csrf
                                 @method('DELETE')
+                                <!-- Tombol Hapus -->
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
                     </tr>
                 @empty
+                    <!-- Pesan jika tidak ada produk -->
                     <tr>
                         <td colspan="5">List Product Empty</td>
                     </tr>

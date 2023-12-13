@@ -1,35 +1,55 @@
 <html>
     <title>Product</title>
     <body>
-        <h2> List Product</h2>
+        <!-- Judul Halaman -->
+        <h2>List Product</h2>
         <hr>
-        <form action="{{URL('produk')}}"method="POST" enctype="multipart/form-data">
+
+        <!-- Menampilkan pesan kesalahan validasi jika ada -->
+        @if ($errors->any())
+            <ul>
+                <!-- Loop melalui setiap pesan kesalahan -->
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
+        <!-- Formulir untuk menambahkan produk baru -->
+        <form action="{{ URL('produk') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <!-- Tabel untuk menyusun elemen formulir -->
             <table>
+                <!-- Baris untuk Nama Product -->
                 <tr>
                     <th>Product</th>
                     <td>
-                        <input type ="text" name= "product" required>
+                        <!-- Input untuk Nama Product -->
+                        <input type="text" name="product" required>
                     </td>
                 </tr>
 
+                <!-- Baris untuk Harga Product -->
                 <tr>
                     <th>Price</th>
                     <td>
-                        <input type ="number" name= "price" required>
+                        <!-- Input untuk Harga Product -->
+                        <input type="number" name="price" required>
                     </td>
                 </tr>
 
+                <!-- Baris untuk Stok Product -->
                 <tr>
                     <th>Stock</th>
                     <td>
-                        <input type ="number" name= "stock" required>
+                        <!-- Input untuk Stok Product -->
+                        <input type="number" name="stock" required>
                     </td>
                 </tr>
-             </table>
+            </table>
 
-             <button type="submit">Save</button>
+            <!-- Tombol untuk menyimpan produk -->
+            <button type="submit">Save</button>
         </form>
     </body>
-</tbody>
-
+</html>
