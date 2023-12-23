@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 
 class ProdukController extends Controller
 {
+    // function __construct(){
+    //     $this->middleware('user')->except('destroy');
+    // }
     /**
      * Menampilkan daftar produk.
      *
