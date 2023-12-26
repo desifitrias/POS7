@@ -56,7 +56,7 @@ Route::resource('user', UserController::class);
 Route::resource('produk', ProdukController::class);
 Route::resource ('profile', ProfileController::class);
 // Middleware Group untuk Produk:
-Route::middleware (['auth','user'])->group(function(){
+Route::middleware (['auth'])->group(function(){
     // Rute CRUD Produk yang terproteksi oleh middleware 'auth' dan 'user'
     Route::resource('produk', ProdukController::class);
 });

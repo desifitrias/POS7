@@ -15,8 +15,19 @@ class Product extends Model
 
     // Kolom-kolom yang dapat diisi (fillable) ketika membuat atau memperbarui model
     protected $fillable = [
-        'product',
-        'price',
-        'stock',
+        'product', // Nama produk
+        'price',   // Harga produk
+        'stock',   // Jumlah stok produk
+        'category_id', // ID kategori produk
     ];
+
+    /**
+     * Relationship with the Category model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
